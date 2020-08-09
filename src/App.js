@@ -10,10 +10,21 @@ class App extends React.Component {
       { content: "nioki nioki", id: 2 }
     ]
   }
+  addTodo = (todo) => {
+    todo.id = Math.random();
+    const todos = [...this.state.todos, todo];
+    this.setState({
+      todos
+    })
+
+  }
+  componentDidUpdate() {
+    console.log(this.state.todos)
+  }
   render() {
     return (
       <div className="App" >
-        <AddTodo />
+        <AddTodo addTodo={this.addTodo} />
         <Todos todos={this.state.todos} />
       </div>
     )

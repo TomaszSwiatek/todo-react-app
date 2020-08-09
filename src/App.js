@@ -15,17 +15,24 @@ class App extends React.Component {
     const todos = [...this.state.todos, todo];
     this.setState({
       todos
-    })
+    });
+
 
   }
+  deleteTodo = (id) => {
+    const todos = this.state.todos.filter(todo => todo.id !== id);
+    this.setState({
+      todos
+    })
+  }
   componentDidUpdate() {
-    console.log(this.state.todos)
+    // console.log(this.state.todos)
   }
   render() {
     return (
       <div className="App" >
         <AddTodo addTodo={this.addTodo} />
-        <Todos todos={this.state.todos} />
+        <Todos todos={this.state.todos} deleteTodo={this.deleteTodo} />
       </div>
     )
   }

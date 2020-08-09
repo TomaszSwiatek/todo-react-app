@@ -1,4 +1,5 @@
 import React from 'react';
+import './Todos.css';
 
 const Todos = ({ todos, deleteTodo }) => {
 
@@ -14,7 +15,6 @@ const Todos = ({ todos, deleteTodo }) => {
         <div className="todos">
             <ul>
                 {todoList}
-
             </ul>
         </div>
     )

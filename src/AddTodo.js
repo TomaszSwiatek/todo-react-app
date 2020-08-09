@@ -12,7 +12,10 @@ class AddTodo extends Component {
             this.props.addTodo(this.state);
             e.target[0].value = null;
         } else {
-            this.state.warning = "please fill input"
+            this.setState({
+                warning: "please fill input"
+            })
+
         }
 
         this.setState({
@@ -25,13 +28,12 @@ class AddTodo extends Component {
 
         this.setState({
             content: e.target.value,
-            id: Math.random(),
             warning: null
         })
 
     }
     componentDidUpdate() {
-        console.log(this.state);
+        // console.log(this.state);
     }
     render() {
         return (
